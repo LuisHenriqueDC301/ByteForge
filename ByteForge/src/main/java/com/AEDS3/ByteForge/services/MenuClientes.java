@@ -46,27 +46,6 @@ public class MenuClientes {
         return clientes;
     }
 
-    public void buscarCliente() {
-        System.out.print("\nID do cliente: ");
-        int id = console.nextInt(); // Lê o ID digitado pelo usuário
-        console.nextLine(); // Limpar o buffer após o nextInt()
-
-        if (id > 0) {
-            try {
-                Cliente cliente = arqClientes.read(id); // Chama o método de leitura da classe Arquivo
-                if (cliente != null) {
-                    mostraCliente(cliente); // Exibe os detalhes do cliente encontrado
-                } else {
-                    System.out.println("Cliente não encontrado.");
-                }
-            } catch (Exception e) {
-                System.out.println("Erro do sistema. Não foi possível buscar o cliente!");
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("ID inválido.");
-        }
-    }
 
     public Cliente incluirCliente(Cliente cliente) {
         try {
@@ -79,7 +58,7 @@ public class MenuClientes {
         }
     }
 
-    public boolean alterarCliente(int id, Cliente clienteNovo) {
+    public Cliente alterarCliente(int id, Cliente clienteNovo) {
         if (id > 0) {
             try {
                 // Tenta ler o cliente com o ID fornecido
@@ -89,21 +68,21 @@ public class MenuClientes {
                     mostraCliente(cliente);  // Exibe os dados do cliente para confirmação
                         boolean alterado = arqClientes.update(clienteNovo);
                             if (alterado) {
-                                return true; // Retorna true se a alteração foi bem-sucedida
+                                return clienteNovo; // Retorna true se a alteração foi bem-sucedida
                         } else {
-                            return false; // Retorna false se a alteração falhou
+                            return null; // Retorna false se a alteração falhou
                         }
                     }
                 else {
                     System.out.println("Cliente não encontrado.");
-                    return false; // Retorna false se o cliente não foi encontrado
+                     return null; // Retorna false se o cliente não foi encontrado
                 }
             } catch (Exception e) {
                 System.out.println("Erro do sistema. Não foi possível alterar o cliente!");
                 e.printStackTrace();
             }
         }
-        return false; // Retorna false se o ID for inválido
+        return null; // Retorna false se o ID for inválido
     }
 
     public boolean excluirCliente(int id) {

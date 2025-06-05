@@ -1,0 +1,19 @@
+body {
+  background: #f8f9fa;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.container {
+  max-width: 900px;
+}
+.table-wrapper {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+.modal-header {
+  background: #0d6efd;
+  color: white;
+}
+    

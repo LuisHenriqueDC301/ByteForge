@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 
@@ -58,4 +61,17 @@ public class ClienteController {
             return new ResponseEntity<>("Erro ao remover cliente: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @PutMapping("alterar/{id}")
+    public Cliente alterarCliente(@PathVariable String id, @RequestBody Cliente entity) {
+        //TODO: process PUT request
+        try{
+            Cliente cliente = menuClientes.alterarCliente(Integer.parseInt(id), entity);
+            return cliente;
+        }catch(Exception e){
+            return null;
+        }
+    }
+
+    
 }

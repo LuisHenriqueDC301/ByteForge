@@ -66,9 +66,15 @@ Todas as funcionalidades esperadas foram implementadas com sucesso. O resultado 
 ## ✅ Checklist
 
 A interface web (HTML, CSS e JavaScript) foi criada? SIM
+
 O CRUD foi ajustado para incorporar a Spring Boot? SIM
+
 As operações do CRUD podem ser usadas via a interface web? SIM
+
 Há um tutorial explicando como criar uma interface web para um CRUD? SIM
+
 O trabalho está funcionando corretamente? SIM
+
 O trabalho está completo? SIM
+
 O trabalho é original e não a cópia de um trabalho de um colega? SIM
